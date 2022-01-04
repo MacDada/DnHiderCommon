@@ -47,17 +47,17 @@ const HidablesStorage = function (storageDriver, prefix, gcDays) {
     };
 
     this.removeOlderThan = function (date) {
-        console.log('dnwh removeOlderThan', date);
+        console.log('dnhc removeOlderThan', date);
 
         const beforeCount = storageDriver[countKey];
 
         // deleting all storage hidables that are older then "date" arg.
-        // takes only dnth keys into account (filters thx to the prefix)
+        // takes only our keys into account (filters thx to the prefix)
         for (let key in storageDriver) {
             if (0 === key.indexOf(prefix)     // has the prefix
                 && new Date(storageDriver[key]) < date // is old enough
             ) {
-                console.log("dnwh removing ", key);
+                console.log("dnhc removing ", key);
 
                 storageDriver.removeItem(key);
                 storageDriver[countKey]--;
@@ -85,7 +85,7 @@ const HidablesStorage = function (storageDriver, prefix, gcDays) {
         const date = new Date();
         date.setDate(date.getDate() - gcDays);
 
-        console.log('dnwh gc: removed '
+        console.log('dnhc gc: removed '
             + storage.removeOlderThan(date)
             + ' hidables older than '
             + date
