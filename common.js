@@ -7,7 +7,7 @@ const injectStyleString = function (str) {
 };
 
 const HidablesStorage = function (storageDriver, prefix, gcDays) {
-    const countKey = "_" + prefix + "_count"; //test
+    const countKey = "_" + prefix + "_count";
 
     this.has = function (id) {
         if (!id) {
